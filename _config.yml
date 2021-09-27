@@ -18,7 +18,7 @@ description              : "Blog hệ thống các kiến thức về ML, AI."
 url                      : "https://quoccuonglqd.github.io/"
 baseurl                  : "/quoccuonguit"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "../assets/images/500x300.png"
+teaser                   : "../assets/images/avatar.jpg"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -99,7 +99,7 @@ analytics:
 # Site Author
 author:
   name             : "Nguyễn Quốc Cường"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "../assets/images/avatar.jpg"
   bio              : "I am a Computer Science student specializing in ."
   location         : "Ho Chi Minh city, Viet Nam"
   email            :

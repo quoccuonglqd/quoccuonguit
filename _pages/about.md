@@ -1,4 +1,5 @@
 ---
+layout: archive
 permalink: /about/
 title: "About"
 excerpt: "Minimal Mistakes is a flexible two-column Jekyll theme."
@@ -12,64 +13,51 @@ layouts_gallery:
   - url: mm-layout-archive.png
     image_path: mm-layout-archive.png
     alt: "archive layout example"
-modified: 2016-04-18T16:39:37-04:00
 ---
+![profile](../assets/images/avatar.jpg)
+<nav class="site-state">
+  <!-- <div>
+      <a href="{{ site.url }}/assets/CV.pdf" rel="alternate" style="color: #DC143C">
+        <i class="fa fa-file fa-2x"></i><br>
+        CV
+      </a>
+  </div> -->
 
-{% include base_path %}
+  <div class="site-state-item">
+        <a href="{{ https://github.com/quoccuonglqd }}">
+          <i class="fa fa-github fa-2x"></i><br>
+          Github
+        </a>
+  </div>
 
-Minimal Mistakes is a flexible two-column Jekyll theme. Perfect for hosting your personal site, blog, or portfolio on GitHub or self-hosting on your own server. As the name implies --- styling is purposely minimalistic to be enhanced and customized by you :smile:.
+  <div class="site-state-item">
+        <a href="{{ site.linkedin }}" rel="alternate" style="color: #DC143C">
+          <i class="fa fa-linkedin-square fa-2x"></i><br>
+          Linkedin
+        </a>
+  </div>
 
-The theme includes responsive layouts (`single`, `archive`, and `splash` pages) that look great on mobile and desktop browsers.
+  <div class="site-state-item">
+        <a href="{{ https://www.facebook.com/profile.php?id=100007138727104 }}" rel="alternate" style="color: #DC143C">
+          <i class="fa fa-facebook-square fa-2x"></i><br>
+          Facebook
+        </a>
+  </div>
 
-{% include gallery id="layouts_gallery" caption="Examples of included layouts `splash`, `single`, and `archive`." %}
 
-[Install the Theme]({{ base_path }}/docs/quick-start-guide/){: .btn .btn--success .btn--large}
+</nav>
 
-## Notable Features
+### Profile :
+[Present]<br>
+Honor Program in Computer Science, <a href="https://www.uit.edu.vn/" target="_blank">UIT-VNU.</a><br>
 
-- Compatible with Jekyll 3.x and GitHub Pages
-- Several layout options (single, archive, splash pages)
-- SEO optimized with support for [Twitter Cards](https://dev.twitter.com/cards/overview) and [Open Graph](http://ogp.me/) data
-- Optional header images, sidebars, table of contents, galleries, related posts, breadcrumb links, and more.
-- Optional comments ([Disqus](https://disqus.com/), [Facebook](https://developers.facebook.com/docs/plugins/comments), Google+, and custom)
-- Optional analytics ([Google Analytics](https://www.google.com/analytics/) and custom)
+### Interests : 
+Machine Learning, Deep Learning, Computer Vision, Data Science
 
-## Demo Pages
+### Publications:
+- Das, A., Ferrer, M. A., Morales, A., Diaz, M., Pal, U., Impedovo, D., ... & Gattal, A. (2021, September). ICDAR 2021 Competition on Script Identification in the Wild. In International Conference on Document Analysis and Recognition (pp. 738-753). Springer, Cham.
 
-| Name                                        | Description                                           |
-| ------------------------------------------- | ----------------------------------------------------- |
-| [Post with Header Image][header-image-post] | A post with a large header image. |
-| [HTML Tags and Formatting Post][html-tags-post] | A variety of common markup showing how the theme styles them. |
-| [Syntax Highlighting Post][syntax-post] | Post displaying highlighted code. |
-| [Post with a Gallery][gallery-post] | A post showing several images wrapped in `<figure>` elements. |
-| [Sample Collection Page][sample-collection] | Single page from a collection. |
-| [Categories Archive][categories-archive] | Posts grouped by category. |
-| [Tags Archive][tags-archive] | Posts grouped by tags. |
-
-For even more demo pages check the [posts archive][year-archive].
-
----
-
-## Credits
-
-### Icons + Demo Images:
-
-- [The Noun Project](https://thenounproject.com) -- Garrett Knoll, Arthur Shlain, and [tracy tam](https://thenounproject.com/tracytam)
-- [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
-- [Unsplash](https://unsplash.com/)
-
-### Other:
-
-- [Jekyll](http://jekyllrb.com/)
-- [jQuery](http://jquery.com/)
-- [Susy](http://susy.oddbird.net/)
-- [Breakpoint](http://breakpoint-sass.com/)
-- [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/)
-- [FitVids.JS](http://fitvidsjs.com/)
-- Greedy Navigation - [lukejacksonn](http://codepen.io/lukejacksonn/pen/PwmwWV)
-- [jQuery Smooth Scroll](https://github.com/kswedberg/jquery-smooth-scroll)
-- [Stickyfill](https://github.com/wilddeer/stickyfill)
-
----
-
-Minimal Mistakes is designed, developed, and maintained by Michael Rose. Just another boring, tattooed, designer from Buffalo New York.
+### Contact :
+E-mail :<br>
+18520206@gm.uit.edu.vn<br>
+<!-- ![wechatcode](/assets/img/wechatcode.png) -->
