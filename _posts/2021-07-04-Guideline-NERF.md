@@ -4,8 +4,8 @@ permalink: /blogs/Guideline NERF
 excerpt: ""
 comment: true
 header:
-  overlay_image: ../assets/images/maxresdefault.jpg
-  teaser: ../assets/images/maxresdefault.jpg
+  overlay_image: /assets/images/maxresdefault.jpg
+  teaser: /assets/images/maxresdefault.jpg
   caption: ""
   actions:
     - label: "More Info"

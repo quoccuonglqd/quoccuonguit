@@ -15,7 +15,55 @@ layouts_gallery:
     alt: "archive layout example"
 ---
 ![profile](../assets/images/avatar.jpg)
+
+
+<!-- | - |-| -|
+| <a href="https://github.com/quoccuonglqd" rel="alternate" style="color: #DC143C"><i class="fa fa-github fa-2x"></i><br>Github</a>      | <a href="https://www.linkedin.com/in/quoc-cuong-nguyen-076b91192/" rel="alternate" style="color: #DC143C"><i class="fa fa-linkedin-square fa-2x"></i><br>Linkedin</a> | <a href="{{ https://www.facebook.com/profile.php?id=100007138727104 }}" rel="alternate" style="color: #DC143C"><i class="fa fa-facebook-square fa-2x"></i><br>Facebook</a> | -->
+
+<style>
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #96D4D4;
+}
+</style>
+
+<table style="width:50%">
+  <tr>
+    <td><a href="https://github.com/quoccuonglqd" rel="alternate" style="color: #DC143C"><i class="fa fa-github fa-2x"></i><br>Github</a></td>
+    <td><a href="https://www.linkedin.com/in/quoc-cuong-nguyen-076b91192/" rel="alternate" style="color: #DC143C"><i class="fa fa-linkedin-square fa-2x"></i><br>Linkedin</a></td>
+    <td><a href="{{ https://www.facebook.com/profile.php?id=100007138727104 }}" rel="alternate" style="color: #DC143C"><i class="fa fa-facebook-square fa-2x"></i><br>Facebook</a></td>
+  </tr>
+</table>
+
 <nav class="site-state">
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-sm">
+          <a href="https://github.com/quoccuonglqd" rel="alternate" style="color: #DC143C">
+            <i class="fa fa-github fa-2x"></i><br>
+            Github
+          </a>
+      </div>
+      <div class="col-sm">
+          <a href="https://www.linkedin.com/in/quoc-cuong-nguyen-076b91192/" rel="alternate" style="color: #DC143C">
+            <i class="fa fa-linkedin-square fa-2x"></i><br>
+            Linkedin
+          </a>
+      </div>
+      <div class="col-sm">
+          <a href="{{ https://www.facebook.com/profile.php?id=100007138727104 }}" rel="alternate" style="color: #DC143C">
+            <i class="fa fa-facebook-square fa-2x"></i><br>
+            Facebook
+          </a>
+      </div>
+    </div>
+  </div> -->
+
+  
+
   <!-- <div>
       <a href="{{ site.url }}/assets/CV.pdf" rel="alternate" style="color: #DC143C">
         <i class="fa fa-file fa-2x"></i><br>
@@ -23,27 +71,7 @@ layouts_gallery:
       </a>
   </div> -->
 
-  <div class="site-state-item">
-        <a href="{{ https://github.com/quoccuonglqd }}">
-          <i class="fa fa-github fa-2x"></i><br>
-          Github
-        </a>
-  </div>
-
-  <div class="site-state-item">
-        <a href="{{ site.linkedin }}" rel="alternate" style="color: #DC143C">
-          <i class="fa fa-linkedin-square fa-2x"></i><br>
-          Linkedin
-        </a>
-  </div>
-
-  <div class="site-state-item">
-        <a href="{{ https://www.facebook.com/profile.php?id=100007138727104 }}" rel="alternate" style="color: #DC143C">
-          <i class="fa fa-facebook-square fa-2x"></i><br>
-          Facebook
-        </a>
-  </div>
-
+  
 
 </nav>
 
