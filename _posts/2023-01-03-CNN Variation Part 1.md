@@ -1,16 +1,16 @@
 ---
-title:  "My Learning Note On Convotional Neural Network Variants"
+title:  "Learning Note On Convotional Neural Network Variants Part 1"
 permalink: /blogs/Convolutional Neural Network Variants Part 1
 excerpt: ""
 header:
-  overlay_image: /assets/images/maxresdefault.jpg
-  teaser: /assets/images/maxresdefault.jpg
+  # overlay_image: /assets/images/maxresdefault.jpg
+  # teaser: /assets/images/maxresdefault.jpg
   caption: ""
   actions:
     - label: "More Info"
       url: "https://www.matthewtancik.com/nerf"
 categories:
-  - Neural Rendering
+  - Deep Learning
 toc: true
 related: true
 ---
@@ -26,6 +26,8 @@ Hello and welcome to my blog post on famous variants of convolutional neural net
 LeNet is a convolutional neural network (CNN) that was developed by Yann LeCun in the 1990s. It was one of the first CNNs and is often considered the "hello world" of CNNs. LeNet was designed to recognize handwritten digits and was widely used for this purpose. It was also used for character recognition and face detection, among other applications.
 
 LeNet consists of a series of convolutional and max-pooling layers, followed by a series of fully connected (dense) layers. It uses a combination of local and global features to recognize patterns in the input data. The local features are learned by the convolutional layers, which apply a set of filters to the input data and detect patterns at different scales. The global features are learned by the fully connected layers, which process the entire input image and capture more abstract patterns.
+
+<img src="../assets/images/CNN/lenet_data2.png" width="600"/>
 
 LeNet consists of 7 layers in total:
 
@@ -57,6 +59,8 @@ The VGG network was developed after the AlexNet, which was the winning model of 
 
 The VGG network introduced a new architectural design for convolutional neural networks (CNNs) that has been widely adopted in many subsequent CNN models. This design consists of stacking several convolutional layers followed by a pooling layer, and repeating this pattern multiple times. The pooling layer is typically inserted after every two or three convolutional layers and serves to down-sample the feature maps produced by the convolutional layers, reducing the spatial dimensions while maintaining the most important information.
 
+<img src="../assets/images/CNN/vgg16.png" width="600"/>
+
 This architectural design has several benefits:
 
 - It allows the CNN to learn more complex features, as the stacked convolutional layers are able to build on top of each other and combine simple features to form more complex ones.
@@ -65,7 +69,7 @@ This architectural design has several benefits:
 
 - It makes the model more translation invariant, as the pooling layers reduce the sensitivity of the model to small translations in the input.
 
-In general, the number of channels in the output feature maps of a convolutional layer is a hyperparameter that can be chosen by the designer of the CNN. In many CNNs, including the VGG network, the number of channels in the output feature maps of a convolutional layer is kept constant across all the convolutional layers. This means that if the number of channels in the input feature maps is $C_{in}$, the number of channels in the output feature maps of all the convolutional layers will also be $C_{out}=C_{in}$.
+In general, the number of channels in the output feature maps of a convolutional layer is a hyperparameter that can be chosen by the designer of the CNN. In many CNNs, including the VGG network, the number of channels in the output feature maps of a convolutional layer is kept constant across all the convolutional layers. This means that if the number of channels in the input feature maps is <img src="https://render.githubusercontent.com/render/math?math=C_{in}">, the number of channels in the output feature maps of all the convolutional layers will also be <img src="https://render.githubusercontent.com/render/math?math=C_{\text{out}}"> = <img src="https://render.githubusercontent.com/render/math?math=C_{in}">.
 
 There are a few reasons why this pattern is commonly used:
 
@@ -87,15 +91,24 @@ The ResNet (short for "Residual Network") is a convolutional neural network that
 
 One of the key innovations of the ResNet model is the use of residual connections, which allow the model to learn much deeper networks without suffering from the problem of vanishing gradients. In a residual connection, the input to a layer is added to the output of the same layer, allowing the model to learn an additional "residual" function on top of the basic function learned by the layer. This allows the model to learn much deeper networks without the performance degradation that usually occurs when the depth of the network is increased.
 
-Convolutional neural networks (CNNs) without residual connections often struggle to learn deep networks because of the problem of vanishing gradients. In deep networks, the gradients of the parameters with respect to the loss function can become very small, making it difficult for the network to learn effectively. This is especially true for CNNs, which typically have many layers and a large number of parameters.
+<img src="../assets/images/CNN/resnet34.png" width="600"/>
 
-One way to mitigate this problem is to use residual connections, as introduced in the ResNet model. In a residual connection, the input to a layer is added to the output of the same layer, allowing the model to learn an additional "residual" function on top of the basic function learned by the layer. This allows the model to learn much deeper networks without the performance degradation that usually occurs when the depth of the network is increased.
 
 In contrast, CNNs without residual connections have to learn the entire function from scratch at each layer, which becomes increasingly difficult as the depth of the network increases. This can lead to the problem of vanishing gradients, where the gradients of the parameters with respect to the loss function become very small, making it difficult for the network to learn effectively.
 
 Overall, residual connections are a powerful tool for learning deep CNNs, and have been shown to be very effective in practice. They have allowed the development of very deep CNNs, such as the ResNet model, which have achieved state-of-the-art results on a variety of image classification tasks.
 
-Another key characteristic of the ResNet model is its use of "bottleneck" layers, which consist of a series of 1x1 convolutions followed by 3x3 convolutions. These layers allow the model to learn more complex features while keeping the number of parameters and the computational cost of the model under control.
+Another key characteristic of the ResNet model is its use of "bottleneck" layers, which is a type of convolutional layer that is used to reduce the dimensionality of the input before passing it through several layers of "residual" blocks.The bottleneck layer is typically composed of three separate operations: a 1x1 convolutional layer, a 3x3 convolutional layer, and another 1x1 convolutional layer, in that order. The 1x1 convolutions are used to compress and expand the number of channels in the input, while the 3x3 convolution is used to preserve spatial information. Compressing the number of channels in the input before passing it through multiple layers of residual blocks in a ResNet architecture is useful for a couple of reasons:
+
+- Computational efficiency: By reducing the number of channels, the number of computations required to process the input is also reduced. This can significantly reduce the overall computational cost of the network, making it more practical to train and deploy on resource-constrained devices.
+
+- Regularization: The 1x1 convolutional layer in the bottleneck layer can act as a form of regularization by reducing the number of parameters in the network, which can help to prevent overfitting.
+
+- Depth-wise separable convolution: Compressing the number of channels in the input allows for the use of depth-wise separable convolution, which can speed up the computation of the network by reducing the number of parameters in the network.
+
+- Feature reuse: By compressing the number of channels in the input, the network can learn more complex representations, which can be reused across multiple layers of the network.
+
+In the original ResNet architecture, pooling layers are used to reduce the spatial dimensions of the feature maps as they pass through the network. Specifically, the pooling is used after the first convolutional layer and some of the residual blocks to reduce the spatial dimensions by a factor of 2. This helps to reduce the computational cost of the network by decreasing the number of parameters and computations required to process the input. It's worth noting that some ResNet variants, such as ResNet-v2, do not use pooling layers. Instead, they use a stride of 2 in the first convolutional layer to reduce the spatial dimensions of the feature maps.
 
 The original ResNet model, ResNet-50, has 50 layers and is made up of a series of convolutional layers, bottleneck layers, and residual connections. It is a very deep network, with over 25 million parameters, and has achieved state-of-the-art results on a variety of image classification tasks.
 
@@ -105,6 +118,9 @@ The DenseNet model was developed by Gao Huang, Zhuang Liu, Laurens van der Maate
 The ResNet and DenseNet models are both convolutional neural networks (CNNs) that have been developed to address the problem of learning deep networks. They both have achieved state-of-the-art results on a variety of image classification tasks and have been widely adopted in the field of computer vision. However, they have some key differences in their design and characteristics:
 
 Architecture: The ResNet model uses a residual connection, where the input to a layer is added to the output of the same layer, to allow the model to learn much deeper networks without suffering from the problem of vanishing gradients. The DenseNet model, on the other hand, uses a dense connection, where each layer is connected to all the subsequent layers, to allow the model to learn more efficient and compact networks.
+<img src="../assets/images/CNN/densenet121.jpg" width="600"/>
+
+**Figure** DenseNet Architecture. [Source](https://paperswithcode.com/lib/torchvision/densenet)
 
 Number of parameters: The ResNet model has a larger number of parameters than the DenseNet model, as it has to learn both the basic function and the residual function at each layer. The DenseNet model, on the other hand, has a smaller number of parameters, as it only has to learn the basic function at each layer and can re-use features learned by the previous layers.
 
@@ -126,6 +142,10 @@ Another key characteristic of the Inception model is its use of global average p
 
 The original Inception model, Inception-v1, uses a total of nine different filter sizes in its inception modules: 1x1, 3x3, 5x5, 3x3 with 1x1 before and after, and 3x3 with 1x1 before. The 1x1 convolutional filters are used to reduce the number of channels in the input, while the larger filters (3x3, 5x5, and 3x3 with 1x1 before and after) are used to learn more complex features. It has 22 layers and is made up of a series of convolutional layers, inception modules, and global average pooling. It is a relatively shallow network, with only about 5 million parameters, and has achieved excellent results on a variety of image classification tasks and has been widely adopted in the field of computer vision. It is known for its efficiency and ability to learn complex features at a lower computational cost.
 
+<img src="../assets/images/CNN/inceptionmodule.PNG" width="600"/>
+
+**Figure** Inception Module. [Source](https://sites.google.com/site/aidysft/objectdetection/recent-list-items)
+
 The Inception model has inspired many subsequent CNN models, including the Inception-v2, Inception-v3, and Inception-v4 models, which have further improved upon the original design. They also use a variety of filter sizes in their inception modules, including 1x1, 3x3, and 5x5, as well as other sizes such as 7x7 and 1x7 and 7x1. These models also use various other techniques, such as factorization and dimensionality reduction, to improve the efficiency and performance of the inception modules.These models have achieved state-of-the-art results on a variety of image classification tasks and have been widely adopted in the field of computer vision.
 
 Overall, the Inception model is a powerful tool for image classification tasks and has had a significant impact on the field of computer vision.
@@ -142,6 +162,10 @@ In a depthwise separable convolution, the filters are applied to the input featu
 
 After the depthwise convolution, a second convolution is applied to the output of the depthwise convolution, using a set of filters that are shared across all the channels (or "depths") of the input. This process is known as the "pointwise" convolution.
 
+<img src="../assets/images/CNN/depthwiseconvolution.png" width="600"/>
+
+**Figure** Depthwise Convolution Layer. [Source](https://www.paepper.com/blog/posts/depthwise-separable-convolutions-in-pytorch/depthwise-separable-convolution.png)
+
 The depthwise separable convolution allows the model to learn more efficient and compact networks, as the number of parameters and the computational cost are significantly reduced. It also allows the model to learn more complex features, as the depthwise convolution allows the model to learn features that are specific to each channel, while the pointwise convolution allows the model to combine these features in a more flexible way.
 
 The MobileNet model also uses a number of other techniques to improve its efficiency and performance, such as factorization and dimensionality reduction. It has achieved excellent results on a variety of image classification tasks and has been widely adopted in the field of computer vision, especially for applications on mobile devices.
@@ -156,13 +180,20 @@ The main idea behind the SE network is to use a "squeeze" operation to reduce th
 
 Global average pooling is a type of pooling operation that is used in convolutional neural networks (CNNs). It is a method of down-sampling the spatial dimensions (height and width) of the input feature maps, while retaining the depth (number of channels).
 
-In global average pooling, the input feature maps are first passed through a pooling layer, which applies a function (such as the average or the maximum) to each patch of the feature maps. The output of the pooling layer is a set of summary statistics that describe the features in each patch.
+In global average pooling, the input feature maps are first passed through a pooling layer, which applies a function (such as the average or the maximum) to each patch of the feature maps. The output of the pooling layer is a set of summary statistics that describe the features in each patch.The global average pooling layer then takes the summary statistics and reduces the spatial dimensions of the input feature maps by taking the average value over the entire spatial dimensions. This produces a single value for each channel in the input feature maps, which can then be passed to the next layer of the network.
 
-The global average pooling layer then takes the summary statistics and reduces the spatial dimensions of the input feature maps by taking the average value over the entire spatial dimensions. This produces a single value for each channel in the input feature maps, which can then be passed to the next layer of the network.
+The excitation operation then applies a fully connected layer (also called a dense layer) to the output of the squeeze operation, followed by a sigmoid activation function. This produces a set of channel-wise weights that are used to adjust the importance of each channel in the input feature maps.
 
-Global average pooling is often used at the end of a CNN, after the final convolutional layer, as a way to down-sample the input feature maps and reduce the number of parameters in the model. It is also used as a way to make the model more robust to changes in the spatial dimensions of the input, as it reduces the spatial dimensions of the input feature maps to a single value per channel.
+People may wonder why we use the Sigmoid function. The sigmoid function is used in the excitation operation because it produces a set of channel-wise weights that are used to adjust the importance of each channel in the input feature maps. These weights are not mutually exclusive, as they can have values between 0 and 1, which means that it can be interpreted as a probability that represents the importance of a channel. The sigmoid function is appropriate for this purpose because it maps its input to a value between 0 and 1, which makes it easy to interpret the output as a probability.
+
+Other function, like the softmax function, on the other hand, is typically used in the final output layer of a neural network to produce a probability distribution over the classes. These probabilities are mutually exclusive, as each class can have a probability between 0 and 1, and the sum of the probabilities should be 1.
+
+<img src="../assets/images/CNN/seblock.png" width="600"/>
+
+**Figure** Squeeze-And-Excitation Block. [Source](https://www.google.com/url?sa=i&url=https%3A%2F%2Farxiv.org%2Fpdf%2F1901.01493&psig=AOvVaw1slGS1lT-Bg71WfHyT-o1X&ust=1674493084723000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCODRhYXT2_wCFQAAAAAdAAAAABAh)
+
+Finally, the input feature maps are multiplied element-wise by the channel-wise weights to produce the output of the SE block. This process allows the network to focus on the most important channels and suppress the less important ones, resulting in a more robust and accurate representation of the input.
 
 The SE network can be incorporated into any CNN by adding the squeeze and excitation operations to the intermediate layers of the network. It has been shown to improve the performance of CNNs on a variety of image classification tasks and has been widely adopted in the field of computer vision.
 
 Overall, the SE network is a powerful tool for improving the performance of CNNs on image classification tasks, and has had a significant impact on the field of computer vision.
-

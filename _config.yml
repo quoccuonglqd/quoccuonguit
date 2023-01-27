@@ -18,7 +18,7 @@ description              : "Blog hệ thống các kiến thức về ML, AI."
 url                      : "https://quoccuonglqd.github.io/"
 baseurl                  : "/quoccuonguit"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "../assets/images/avatar.jpg"
+teaser                   : "../assets/images/nguyc.jpg"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
