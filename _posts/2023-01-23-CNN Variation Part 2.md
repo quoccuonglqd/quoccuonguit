@@ -21,7 +21,61 @@ Hello and welcome to my blog post on famous variants of convolutional neural net
 
 # 2/ Famous network:
 
-## 2.7/ EfficientNet:
+## 2.6 MobileNet
+
+The MobileNet model is a convolutional neural network (CNN) developed by Google specifically for mobile devices. It was designed to be small, efficient, and fast, making it well-suited for use on mobile devices with limited computational resources.
+
+One of the key innovations of the MobileNet model is the use of depthwise separable convolutions, which allow the model to learn more efficient and compact networks. 
+
+In a standard convolutional layer, the filters are applied to the input feature maps in a sliding window fashion, with the output being a weighted sum of the values in the input window. This process is repeated for every location in the input feature maps to produce the output feature maps.
+
+In a depthwise separable convolution, the filters are applied to the input feature maps in a different way. Instead of applying a single filter to the entire input feature maps, a separate filter is applied to each channel (or "depth") in the input feature maps. This process is known as a "depthwise" convolution.
+
+After the depthwise convolution, a second convolution is applied a 1x1 convolution to the output of the depthwise convolution, using a set of filters that are shared across all the channels (or "depths") of the input to scale the depth of the feature map. This process is known as the "pointwise" convolution.
+
+<img src="../assets/images/CNN/depthwiseconvolution.png" width="600"/>
+
+**Figure** Depthwise Convolution Layer. [Source](https://www.paepper.com/blog/posts/depthwise-separable-convolutions-in-pytorch/depthwise-separable-convolution.png)
+
+The depthwise separable convolution allows the model to learn more efficient and compact networks, as the number of parameters and the computational cost are significantly reduced. It also allows the model to learn more complex features, as the depthwise convolution allows the model to learn features that are specific to each channel, while the pointwise convolution allows the model to combine these features in a more flexible way.
+
+MobileNetV2, on the other hand, introduces an inverted residual block, which is essentially a modified version of the depthwise separable convolution layer. This block applies a linear bottleneck transformation before and after the depthwise convolution operation. The linear bottleneck transformation in an inverted residual block refers to the use of a 1x1 convolution layer with a small number of filters before and after the depthwise convolution operation. This 1x1 convolution layer is also called a linear bottleneck, and it serves two main purposes:
+
+- Dimensionality reduction: The 1x1 convolution layer with a small number of filters reduces the number of input and output channels, which helps to decrease the computational cost of the overall network.
+
+- Increasing representational power: Despite reducing the number of parameters, the linear bottleneck transformation allows the network to increase its representational power. It allows the network to learn more complex features by providing more non-linearity. This helps to improve the model's accuracy.
+
+The MobileNet model also uses a number of other techniques to improve its efficiency and performance, such as factorization and dimensionality reduction. It has achieved excellent results on a variety of image classification tasks and has been widely adopted in the field of computer vision, especially for applications on mobile devices.
+
+Overall, the MobileNet model is a powerful tool for image classification tasks on mobile devices and has had a significant impact on the field of computer vision.
+
+## 2.7 SENet
+
+The Squeeze-and-Excitation (SE) network is a convolutional neural network (CNN) that was developed to improve the performance of CNNs on image classification tasks. It was introduced in the paper "Squeeze-and-Excitation Networks" by Jie Hu, Li Shen, and Gang Sun in 2018.
+
+The main idea behind the SE network is to use a "squeeze" operation to reduce the spatial dimensions (height and width) of the input feature maps, and an "excitation" operation to re-scale the feature maps based on their relative importance. The squeeze operation is implemented using a global average pooling layer, which reduces the spatial dimensions of the input feature maps and outputs a vector of summary statistics. The excitation operation is implemented using a fully connected (FC) layer and a sigmoid activation function, which re-scales the input feature maps based on their relative importance.
+
+Global average pooling is a type of pooling operation that is used in convolutional neural networks (CNNs). It is a method of down-sampling the spatial dimensions (height and width) of the input feature maps, while retaining the depth (number of channels).
+
+In global average pooling, the input feature maps are first passed through a pooling layer, which applies a function (such as the average or the maximum) to each patch of the feature maps. The output of the pooling layer is a set of summary statistics that describe the features in each patch.The global average pooling layer then takes the summary statistics and reduces the spatial dimensions of the input feature maps by taking the average value over the entire spatial dimensions. This produces a single value for each channel in the input feature maps, which can then be passed to the next layer of the network.
+
+The excitation operation then applies a fully connected layer (also called a dense layer) to the output of the squeeze operation, followed by a sigmoid activation function. This produces a set of channel-wise weights that are used to adjust the importance of each channel in the input feature maps. In this way, it plays a similar role as the famous attention mechanism.
+
+People may wonder why we use the Sigmoid function. The sigmoid function is used in the excitation operation because it produces a set of channel-wise weights that are used to adjust the importance of each channel in the input feature maps. These weights are not mutually exclusive, as they can have values between 0 and 1, which means that it can be interpreted as a probability that represents the importance of a channel. The sigmoid function is appropriate for this purpose because it maps its input to a value between 0 and 1, which makes it easy to interpret the output as a probability.
+
+Other function, like the softmax function, on the other hand, is typically used in the final output layer of a neural network to produce a probability distribution over the classes. These probabilities are mutually exclusive, as each class can have a probability between 0 and 1, and the sum of the probabilities should be 1.
+
+<img src="../assets/images/CNN/seblock.png" width="600"/>
+
+**Figure** Squeeze-And-Excitation Block. [Source](https://www.google.com/url?sa=i&url=https%3A%2F%2Farxiv.org%2Fpdf%2F1901.01493&psig=AOvVaw1slGS1lT-Bg71WfHyT-o1X&ust=1674493084723000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCODRhYXT2_wCFQAAAAAdAAAAABAh)
+
+Finally, the input feature maps are multiplied element-wise by the channel-wise weights to produce the output of the SE block. This process allows the network to focus on the most important channels and suppress the less important ones, resulting in a more robust and accurate representation of the input.
+
+The SE network can be incorporated into any CNN by adding the squeeze and excitation operations to the intermediate layers of the network. It has been shown to improve the performance of CNNs on a variety of image classification tasks and has been widely adopted in the field of computer vision.
+
+Overall, the SE network is a powerful tool for improving the performance of CNNs on image classification tasks, and has had a significant impact on the field of computer vision.
+
+## 2.8/ EfficientNet:
 
 EfficientNet is a convolutional neural network (CNN) architecture that has been designed to improve upon previous state-of-the-art models by increasing the model's capacity while also reducing the number of parameters and computational cost. The EfficientNet architecture is achieved through a combination of techniques such as compound scaling, which adjusts the resolution, depth, and width of the network in a systematic and principled manner, and the use of a mobile inverted bottleneck (MBConv) block, which is a more efficient version of the standard inverted bottleneck block.
 
@@ -56,7 +110,7 @@ Another important aspect of EfficientNet is that it can be easily scaled to diff
 
 Overall, EfficientNet is a powerful and versatile CNN architecture that has the potential to revolutionize the way we train and deploy large and complex models. Its ability to achieve state-of-the-art performance while also being computationally efficient makes it an ideal choice for a wide range of image classification tasks, from small datasets to large-scale datasets.
 
-## 2.8 HRNet:
+## 2.9 HRNet:
 
 HRNet, short for High-Resolution Network, is a state-of-the-art deep learning model for image understanding tasks such as object detection, semantic segmentation, and human pose estimation. It was first introduced by a team of researchers at the Multimedia Laboratory of the Chinese University of Hong Kong led by Dr. Ke Sun. 
 
@@ -73,7 +127,7 @@ The authors of the paper proposed a novel architecture that allows for the maint
 
 HRNet maintain high-resolution representations throughout the network by starting with a high-resolution convolution stream as the first stage, and gradually adding high-to-low resolution streams one by one, forming new stages. The parallel streams at each stage consist of the resolutions from the previous stage, and an extra lower one, which allows for multi-resolution fusions and the ability to maintain high-resolution representations throughout the network. This architecture is called Parallel Multi-Resolution Convolutions.
 
-Repeated Multi-Resolution Fusions is a technique used in the HRNet architecture to fuse representations from different resolution streams. This is done by repeatedly applying a transform function on each resolution stream, that is dependent on the input resolution index $x$ and the output resolution index r. The transform function is used to align the number of channels between the high-resolution and low-resolution representations. If the output resolution index ($r$) is lower than the input resolution index ($x$), the transform function (fxr(·)) downsamples the input representation (R) through $(r - x)$ stride-2 3 × 3 convolutions. For example, one stride-2 3 × 3 convolution for 2× downsampling, and two consecutive stride-2 3 × 3 convolutions for 4× downsampling. If the output resolution is higher than the input resolution, the transform function is upsampling the input representation R through the bilinear upsampling followed by a 1 × 1 convolution for aligning the number of channels.
+Repeated Multi-Resolution Fusions is a technique used in the HRNet architecture to fuse representations from different resolution streams. This is done by repeatedly applying a transform function on each resolution stream, that is dependent on the input resolution index $x$ and the output resolution index r. The transform function is used to align the number of channels between the high-resolution and low-resolution representations. If the output resolution index ($r × r$) is lower than the input resolution index ($x × x$), the transform function ($f_{r}(·)$) downsamples the input representation (R) through $(r - x)$ stride-2 $3 × 3$ convolutions. For example, one stride-2 $3 × 3$ convolution for 2× downsampling, and two consecutive stride-2 $3 × 3$ convolutions for 4× downsampling. If the output resolution is higher than the input resolution, the transform function is upsampling the input representation $R$ through the bilinear upsampling followed by a $1 × 1$ convolution for aligning the number of channels.
 
 <img src="../assets/images/CNN/representationhead.jpg" width="600"/>
 
@@ -81,3 +135,8 @@ Repeated Multi-Resolution Fusions is a technique used in the HRNet architecture 
 
 The resulting network is called HRNetV1, which is mainly applied to human pose estimation and achieves state-of-the-art results on COCO keypoint detection dataset. HRNetV2, on the other hand, combines the representations from all the high-to-low resolution parallel streams and is mainly applied to semantic segmentation, achieving state-of-the-art results on PASCAL-Context, Cityscapes, and LIP datasets. HRNetV2p is an extension of HRNetV2, which construct a multi-level representation and is applied to object detection and joint detection and instance segmentation. It improves the detection performance, particularly for small objects.
 
+# Conclusion:
+
+Overall, this blog post aimed to provide an intuitive understanding of famous CNN architectures and techniques, and how they can be used to improve the performance of CNNs. These architectures and techniques have been proven to be highly effective in a wide range of image classification tasks and are widely used in modern deep learning applications.
+
+Part 2 of this blog has explored the various architectures and techniques used in modern CNNs to improve their performance. In part 3 of this blog, we will delve deeper into other architectures that are less known but being used in various modern CNNs and explore their specific use cases and advantages.
