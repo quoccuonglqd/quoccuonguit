@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-minimal_mistakes_skin    : "default" #, "air", aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dirt" #"default", "air", aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "vi-VN"
@@ -55,7 +55,7 @@ atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : # true, false (default)
 search                   : # true, false (default)
-search_full_content      : # true, false (default)
+search_full_content      : true # true, false (default)
 search_provider          : # lunr (default), algolia, google
 algolia:
   application_id         : # YOUR_APPLICATION_ID
@@ -99,7 +99,7 @@ analytics:
 # Site Author
 author:
   name             : "Nguyễn Quốc Cường"
-  avatar           : "../assets/images/avatar.jpg"
+  avatar           : "../assets/images/nguyc.jpg"
   bio              : "I am a Computer Science student specializing in Machine Learning, Computer Vision."
   location         : "Ho Chi Minh city, Viet Nam"
   email            :
@@ -107,18 +107,15 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:quoccuonglqd123@gmail.com"
-    # - label: "Website"
-    #   icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Linkedin"
-      icon: "fab fa-linkedin-in"
-      url: "https://www.linkedin.com/in/quoc-cuong-nguyen-076b91192/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/quoccuonglqd"
+    # - label: "Linkedin"
+    #   icon: "fab fa-linkedin"
+    #   url: "https://www.linkedin.com/in/quoc-cuong-nguyen-076b91192/"
+    # - label: "Facebook"
+    #   icon: "fab fa-fw fa-facebook-square"
+    #   url: "https://facebook.com/"
+    # - label: "GitHub"
+    #   icon: "fab fa-fw fa-github-square"
+    #   url: "https://github.com/quoccuonglqd"
     # - label: "Instagram"
     #   icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -356,4 +353,5 @@ defaults:
       read_time: true
       comments: true
       share: true
-      related: false
+      related: true
+      mathjax: true

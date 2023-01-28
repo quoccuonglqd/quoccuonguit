@@ -4,7 +4,7 @@ permalink: /blogs/Convolutional Neural Network Variants Part 1
 excerpt: ""
 header:
   # overlay_image: /assets/images/maxresdefault.jpg
-  # teaser: /assets/images/maxresdefault.jpg
+  teaser: ../assets/images/CNN/cnnteaser.jpg
   caption: ""
   actions:
     - label: "More Info"
@@ -160,13 +160,19 @@ In a standard convolutional layer, the filters are applied to the input feature 
 
 In a depthwise separable convolution, the filters are applied to the input feature maps in a different way. Instead of applying a single filter to the entire input feature maps, a separate filter is applied to each channel (or "depth") in the input feature maps. This process is known as a "depthwise" convolution.
 
-After the depthwise convolution, a second convolution is applied to the output of the depthwise convolution, using a set of filters that are shared across all the channels (or "depths") of the input. This process is known as the "pointwise" convolution.
+After the depthwise convolution, a second convolution is applied a 1x1 convolution to the output of the depthwise convolution, using a set of filters that are shared across all the channels (or "depths") of the input to scale the depth of the feature map. This process is known as the "pointwise" convolution.
 
 <img src="../assets/images/CNN/depthwiseconvolution.png" width="600"/>
 
 **Figure** Depthwise Convolution Layer. [Source](https://www.paepper.com/blog/posts/depthwise-separable-convolutions-in-pytorch/depthwise-separable-convolution.png)
 
 The depthwise separable convolution allows the model to learn more efficient and compact networks, as the number of parameters and the computational cost are significantly reduced. It also allows the model to learn more complex features, as the depthwise convolution allows the model to learn features that are specific to each channel, while the pointwise convolution allows the model to combine these features in a more flexible way.
+
+MobileNetV2, on the other hand, introduces an inverted residual block, which is essentially a modified version of the depthwise separable convolution layer. This block applies a linear bottleneck transformation before and after the depthwise convolution operation. The linear bottleneck transformation in an inverted residual block refers to the use of a 1x1 convolution layer with a small number of filters before and after the depthwise convolution operation. This 1x1 convolution layer is also called a linear bottleneck, and it serves two main purposes:
+
+- Dimensionality reduction: The 1x1 convolution layer with a small number of filters reduces the number of input and output channels, which helps to decrease the computational cost of the overall network.
+
+- Increasing representational power: Despite reducing the number of parameters, the linear bottleneck transformation allows the network to increase its representational power. It allows the network to learn more complex features by providing more non-linearity. This helps to improve the model's accuracy.
 
 The MobileNet model also uses a number of other techniques to improve its efficiency and performance, such as factorization and dimensionality reduction. It has achieved excellent results on a variety of image classification tasks and has been widely adopted in the field of computer vision, especially for applications on mobile devices.
 
@@ -197,3 +203,13 @@ Finally, the input feature maps are multiplied element-wise by the channel-wise 
 The SE network can be incorporated into any CNN by adding the squeeze and excitation operations to the intermediate layers of the network. It has been shown to improve the performance of CNNs on a variety of image classification tasks and has been widely adopted in the field of computer vision.
 
 Overall, the SE network is a powerful tool for improving the performance of CNNs on image classification tasks, and has had a significant impact on the field of computer vision.
+
+# 3. Conclusion:
+
+In conclusion, part 1 of our blog post has provided an overview of some of the most famous CNN architectures that have been developed to date. We have discussed the key features and intuition behind each architecture, including their strengths and weaknesses. We have highlighted how each architecture has contributed to the advancement of CNNs and the field of deep learning. We have also discussed how they are used in different applications and how they have evolved over time.
+
+In particular, we have discussed the LeNet architecture, which was the first successful CNN architecture and laid the foundation for future developments. We have also discussed the AlexNet architecture, which won the ImageNet competition and sparked a renewed interest in CNNs. We have also discussed the VGG, GoogLeNet and ResNet architectures, which have achieved state-of-the-art results in image classification and have become widely used in many other applications.
+
+As we have seen, these architectures have been able to achieve impressive results by introducing new techniques such as deeper networks, improved convolutional layers and pooling layers, and by using more advanced techniques such as residual connections, squeeze-and-excitation blocks, and dense connections.
+
+In the next part of our blog post, we will discuss some of the more recent CNN architectures that have been developed and how they have pushed the boundaries of what is possible with CNNs, we will also discuss the future of CNN architectures and their potential applications.

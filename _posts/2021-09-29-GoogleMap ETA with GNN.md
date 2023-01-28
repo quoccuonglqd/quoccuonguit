@@ -5,7 +5,7 @@ excerpt: ""
 comment: true
 header:
   overlay_image: /assets/images/satteline_map.jpg
-  teaser: /assets/images/satteline_map.jpg
+  teaser: ../assets/images/satteline_map.jpg
   caption: ""
   actions: ""
 categories:
