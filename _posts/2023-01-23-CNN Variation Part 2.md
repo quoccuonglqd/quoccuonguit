@@ -35,19 +35,27 @@ After the depthwise convolution, a second convolution is applied a 1x1 convoluti
 
 <img src="../assets/images/CNN/depthwiseconvolution.png" width="600"/>
 
-**Figure** Depthwise Convolution Layer. [Source](https://www.paepper.com/blog/posts/depthwise-separable-convolutions-in-pytorch/depthwise-separable-convolution.png)
+**Figure 1** Depthwise Convolution Layer. [Source](https://www.paepper.com/blog/posts/depthwise-separable-convolutions-in-pytorch/depthwise-separable-convolution.png)
 
 The depthwise separable convolution allows the model to learn more efficient and compact networks, as the number of parameters and the computational cost are significantly reduced. It also allows the model to learn more complex features, as the depthwise convolution allows the model to learn features that are specific to each channel, while the pointwise convolution allows the model to combine these features in a more flexible way.
 
-MobileNetV2, on the other hand, introduces an inverted residual block, which is essentially a modified version of the depthwise separable convolution layer. This block applies a linear bottleneck transformation before and after the depthwise convolution operation. The linear bottleneck transformation in an inverted residual block refers to the use of a 1x1 convolution layer with a small number of filters before and after the depthwise convolution operation. This 1x1 convolution layer is also called a linear bottleneck, and it serves two main purposes:
+MobileNetV2, introduces an inverted residual block, which is essentially a inversed version of the residual block using depthwise separable convolution layer. This block applies a linear bottleneck transformation before and after the depthwise convolution operation. The linear bottleneck transformation in an inverted residual block refers to the use of a 1x1 convolution layer with a small number of filters before and after the depthwise convolution operation. 
 
-- Dimensionality reduction: The 1x1 convolution layer with a small number of filters reduces the number of input and output channels, which helps to decrease the computational cost of the overall network.
+A traditional residual block has a structure where the input has a high number of channels, which is first compressed using a 1x1 convolution to reduce the number of channels. Then, the number of channels is increased again with another 1x1 convolution, and the output of the block is the sum of the input and the output of the second 1x1 convolution. Inverted residual blocks, on the other hand, have a structure that first widens the input with a 1x1 convolution, then uses a 3x3 depthwise convolution to greatly reduce the number of parameters. Finally, the number of channels is reduced again with another 1x1 convolution, and the output of the block is the sum of the input and the output of the second 1x1 convolution. 
 
-- Increasing representational power: Despite reducing the number of parameters, the linear bottleneck transformation allows the network to increase its representational power. It allows the network to learn more complex features by providing more non-linearity. This helps to improve the model's accuracy.
+<img src="../assets/images/CNN/inverted_residual.png" width="600"/>
 
-The MobileNet model also uses a number of other techniques to improve its efficiency and performance, such as factorization and dimensionality reduction. It has achieved excellent results on a variety of image classification tasks and has been widely adopted in the field of computer vision, especially for applications on mobile devices.
+**Figure 2** Inverted Residual Block. [Source](https://arxiv.org/abs/1801.04381v4)
 
-Overall, the MobileNet model is a powerful tool for image classification tasks on mobile devices and has had a significant impact on the field of computer vision.
+This design comes from a premise that non-linear activations result in information loss, means that applying non-linear transformations to the feature maps can reduce the amount of information that is preserved. The ReLU activation function is widely used in neural networks because it can increase the representational complexity of the network. However, it can also result in information loss if the activation collapses certain channels. In this case, the information in that channel is lost and cannot be recovered.
+
+However, if the network has a large number of channels, it's possible that the information lost in one channel can still be preserved in other channels. If the input manifold can be embedded into a lower-dimensional subspace of the activation space, then the ReLU transformation can preserve the information while still introducing the needed complexity into the set of expressible functions.
+
+Also, to preserve most of needed information, it's important that the input and output of inverted residual block are obtained via a linear transformation. In other words, we **do not** use the non-linear ReLU activation function on the final 1x1 convolution that maps back to low-dimensional space.
+
+<img src="../assets/images/CNN/inverted_residual_detail.PNG" width="600"/>
+
+**Figure 3** Representation of the inverted residual layer. [Source](https://arxiv.org/abs/1801.04381v4)
 
 ## 2.7 SENet
 
@@ -67,7 +75,7 @@ Other function, like the softmax function, on the other hand, is typically used 
 
 <img src="../assets/images/CNN/seblock.png" width="600"/>
 
-**Figure** Squeeze-And-Excitation Block. [Source](https://www.google.com/url?sa=i&url=https%3A%2F%2Farxiv.org%2Fpdf%2F1901.01493&psig=AOvVaw1slGS1lT-Bg71WfHyT-o1X&ust=1674493084723000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCODRhYXT2_wCFQAAAAAdAAAAABAh)
+**Figure 4** Squeeze-And-Excitation Block. [Source](https://www.google.com/url?sa=i&url=https%3A%2F%2Farxiv.org%2Fpdf%2F1901.01493&psig=AOvVaw1slGS1lT-Bg71WfHyT-o1X&ust=1674493084723000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCODRhYXT2_wCFQAAAAAdAAAAABAh)
 
 Finally, the input feature maps are multiplied element-wise by the channel-wise weights to produce the output of the SE block. This process allows the network to focus on the most important channels and suppress the less important ones, resulting in a more robust and accurate representation of the input.
 
@@ -89,13 +97,13 @@ A mechanism named Progressive Learning is also introduced in EfficientNetV2 to g
 
 <img src="../assets/images/CNN/pandatrain_page-0001.jpg" width="600"/>
 
-**Figure 1** Progressive Learning Progress. [Source](https://arxiv.org/abs/2104.00298)
+**Figure 5** Progressive Learning Progress. [Source](https://arxiv.org/abs/2104.00298)
 
 There is an observation that we should also adjust the regularization strength accordingly to different image sizes. Progressive Learning with adaptive Regularization was proposed to address this insight byy gradually increasing the complexity of the network while also adjusting the regularization strength. There are 3 types of regularization techniques used in EfficientNet: Dropout, RandAugment, Mixup.
 
 <img src="../assets/images/CNN/pandamixup_page-0001.jpg" width="600"/>
 
-**Figure 2** Mixup Augmentation Technique. [Source](https://arxiv.org/abs/2104.00298)
+**Figure 6** Mixup Augmentation Technique. [Source](https://arxiv.org/abs/2104.00298)
 
 <!-- The intuition of the scaling logic comes from 2 observations: 
 
@@ -123,7 +131,7 @@ The authors of the paper proposed a novel architecture that allows for the maint
 
 <img src="../assets/images/CNN/traditionalone withhrnet.jpg" width="600"/>
 
-**Figure 3** Traditional High Resolution Revovery (Above) Vs HRNet (Below). [Source](https://arxiv.org/abs/1908.07919)
+**Figure 7** Traditional High Resolution Revovery (Above) Vs HRNet (Below). [Source](https://arxiv.org/abs/1908.07919)
 
 HRNet maintain high-resolution representations throughout the network by starting with a high-resolution convolution stream as the first stage, and gradually adding high-to-low resolution streams one by one, forming new stages. The parallel streams at each stage consist of the resolutions from the previous stage, and an extra lower one, which allows for multi-resolution fusions and the ability to maintain high-resolution representations throughout the network. This architecture is called Parallel Multi-Resolution Convolutions.
 
@@ -131,7 +139,7 @@ Repeated Multi-Resolution Fusions is a technique used in the HRNet architecture 
 
 <img src="../assets/images/CNN/representationhead.jpg" width="600"/>
 
-**Figure 4** The representation head of HRNetV1, HRNetV2, HRNetV2p. [Source](https://arxiv.org/abs/1908.07919)
+**Figure 8** The representation head of HRNetV1, HRNetV2, HRNetV2p. [Source](https://arxiv.org/abs/1908.07919)
 
 The resulting network is called HRNetV1, which is mainly applied to human pose estimation and achieves state-of-the-art results on COCO keypoint detection dataset. HRNetV2, on the other hand, combines the representations from all the high-to-low resolution parallel streams and is mainly applied to semantic segmentation, achieving state-of-the-art results on PASCAL-Context, Cityscapes, and LIP datasets. HRNetV2p is an extension of HRNetV2, which construct a multi-level representation and is applied to object detection and joint detection and instance segmentation. It improves the detection performance, particularly for small objects.
 
