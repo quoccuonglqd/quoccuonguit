@@ -17,7 +17,7 @@ related: true
 
 # 1/ Introduction:
 
-Hello and welcome to my blog post on famous variants of convolutional neural networks (CNNs)! If you're reading this, chances are you're just as passionate about deep learning and computer vision as I am. CNNs are an integral part of the field, and have been responsible for some of the most impressive breakthroughs in image classification and object recognition. In this post, I'll be introducing you to some of the most famous CNNs that have been developed over the years and discussing their unique characteristics and contributions to the field. Whether you're a seasoned deep learning practitioner or just starting out, I hope this post will inspire you to dive deeper into the world of CNNs and learn more about how they work. So without further ado, let's get started!
+In Part 1 of our exploration of the intuition behind famous CNN architectures, we gained an understanding of the building blocks that make up these models. In Part 2, we will delve deeper into some of the most widely used CNN architectures, including MobileNet, SENet, EfficientNet and HRNet. We will examine the design decisions that led to their creation, the challenges they aim to overcome, and the impact they have had on the field of computer vision. Whether you are a beginner looking to understand the basics or an experienced practitioner looking to expand your knowledge, Part 2 will provide you with a comprehensive overview of these cutting-edge models and their underlying principles.
 
 # 2/ Famous network:
 
