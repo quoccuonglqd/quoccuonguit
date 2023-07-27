@@ -117,7 +117,32 @@ Machine Learning, Deep Learning, Computer Vision, Data Science
 	- Finish the completed pipeline for data formatting and model retraining
 
 ### Publications:
+- Nguyen, Quoc-Cuong, et al. "Efficient Multi-Organ Segmentation Using HRNet And OCRNet." 2022 RIVF International Conference on Computing and Communication Technologies (RIVF). IEEE, 2022.
+
+- Nguyen, Huy Q., et al. "Enhancing few-shot image classification with cosine transformer." IEEE Access (2023).
+
 - Das, A., Ferrer, M. A., Morales, A., Diaz, M., Pal, U., Impedovo, D., ... & Gattal, A. (2021, September). ICDAR 2021 Competition on Script Identification in the Wild. In International Conference on Document Analysis and Recognition (pp. 738-753). Springer, Cham.
+
+- MA, Jun, et al. Fast and low-GPU-memory abdomen CT organ segmentation: the flare challenge. Medical Image Analysis, 2022, 82: 102616.
+
+### Award:
+
+• Vietnam Southern Provicial Programming Contest, HCM, VN  
+• Third Prize in 2018 Vietnam National Programming Contest  
+• Honorable Mention in 2018 ICPC Asia Southeast and Pacific Hanoi Regional Contest  
+• Second Prize in 2019 Vietnam National Programming Contest  
+• First Prize in 2019 UIT ACM Programming Contest  
+• Honorable Mention in 2020 ICPC Asia Can Tho Regional Contest  
+• Third Prize in Vietnam Informatic Student Olypic 2018  
+• Top 4 in ICDAR Competition on Script Identification in the Wild  
+• Top 6 in FLARE2021-Fast and Low GPU memory Abdominal oRgan sEgmentation  
+• Hornorable Mention in Computer Vision Track of Zalo AI Challenge 2020  
+• AI Hackathon 2020 @ AI4VN  
+• Creative Ideas Award  
+• Honorable Mention Award  
+• Awarded for the fastest and most efficient submit(3/10 submits)  
+• First Prize in Competitive Programming Competition with NetCompany
+
 
 ### Contact :
 E-mail :<br>
