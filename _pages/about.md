@@ -14,7 +14,7 @@ layouts_gallery:
     image_path: mm-layout-archive.png
     alt: "archive layout example"
 ---
-![profile](../assets/images/avatar.jpg)
+![profile](../assets/images/nguyc.jpg)
 
 
 <!-- | - |-| -|
@@ -34,7 +34,8 @@ th, td {
   <tr>
     <td><a href="https://github.com/quoccuonglqd" rel="alternate" style="color: #DC143C"><i class="fa fa-github fa-2x"></i><br>Github</a></td>
     <td><a href="https://www.linkedin.com/in/quoc-cuong-nguyen-076b91192/" rel="alternate" style="color: #DC143C"><i class="fa fa-linkedin-square fa-2x"></i><br>Linkedin</a></td>
-    <td><a href="{{ https://www.facebook.com/profile.php?id=100007138727104 }}" rel="alternate" style="color: #DC143C"><i class="fa fa-facebook-square fa-2x"></i><br>Facebook</a></td>
+    <td><a href="https://www.facebook.com/profile.php?id=100007138727104" rel="alternate" style="color: #DC143C"><i class="fa fa-facebook-square fa-2x"></i><br>Facebook</a></td>
+    <td><a href="https://scholar.google.com/citations?user=0r-BDaAAAAAJ&hl=en" rel="alternate" style="color: #DC143C"><i class="fa fa-graduation-cap fa-2x"></i><br>Google Scholar</a></td>
   </tr>
 </table>
 
@@ -75,14 +76,52 @@ th, td {
 
 </nav>
 
-### Profile :
-[Present]<br>
+### Educational background :
 Honor Program in Computer Science, <a href="https://www.uit.edu.vn/" target="_blank">UIT-VNU.</a><br>
+Master of Information Science, <a href="https://www.jaist.ac.jp/" target="_blank">JAIST.</a><br>
 
-### Interests : 
-Machine Learning, Deep Learning, Computer Vision, Data Science
+<!-- ### Interests : 
+Machine Learning, Deep Learning, Computer Vision, Data Science -->
+
+### Industry Experience: 
+- March. 2024 - Now: MLOps Engineer, AI Team Lead at IMT Solutions
+- December. 2022 - March. 2024: AI Engineer at Bap IT 
+- Aug. 2022 - Dec.2022: AI Backend Engineer at PapaGroup
+
+### ACADEMIC EXPERIENCE:
+- April. 2024 - Now: Labratory Assistant at Japan Adavanced Institute of Science and Technology
+- Feb. 2022 - Aug. 2022: Research Assistant at Vin Smart Health Center
+- Sep. 2018 - Jan. 2022: Research Assistant at Multimedia Communication Lab at the University of Information Technology
+
+### FREELANCE EXPERIENCE:
+- June. 2023 - May. 2024: Data Engineer, LLM Engineer at ChatFly
 
 ### Projects:
+- General Document Analysis
+  - Facilitated the CI/CD process for data ingestion, annotation, model training, model deployment, monitoring, and AI
+API development for open-sourced layout analysis model 
+  - Setup pipeline to allow user finetune their own Azure Document Intelligence model
+  - Apply this workflow to build:
+    - Invoice information extraction
+    - Name card information extraction
+    - Resume analyzer application
+
+- LLM-based chatbot framework
+  - Employs cutting-edge techniques: Qdrant, Semantic Caching, Semantic Routing, NVIDIA Memo, Portkey
+  - Support including references and images in the response of chatbot
+  - Apply this framework to build:
+    - An internal chatbot to support newly hired employees.
+    - A chatbot capable of translating receipt names across a set of low-resourced languages
+
+- IoT data management
+  - Developed AWS architecture to monitor the data from IOT sensor devices which measures temperature, humidity, power usage, etc
+  - Used AWS service to build machine learning pipeline used to forecast the time series value in the future as well as detect
+anomalies in the previous month's data
+
+- AI camera system for face recognition 
+  - Developed and maintained AI services of real-time recognition and authentication of individuals.
+  - Integrate into the check-in/check-out system
+
 - ID Card Digitization and Information Extraction
 	- Examined to use CRAFT, PIXELLINK, CTPN for text detection module and VIETOCR for text recognition module
 	- Created synthetic data for ID card images
@@ -143,8 +182,16 @@ Machine Learning, Deep Learning, Computer Vision, Data Science
 • Awarded for the fastest and most efficient submit(3/10 submits)  
 • First Prize in Competitive Programming Competition with NetCompany
 
+### Certification :
+
+• <a href="https://www.credly.com/badges/59d93e8b-15c0-4e62-92d8-018c9677f679" target="_blank"> AWS Solution Architect Associate C03 </a>
+
+• <a href="https://www.datacamp.com/certificate/DSA0019587962979" target="_blank"> Datacamp Data Scientist Associate </a>
+
+• <a href="https://www.coursera.org/account/accomplishments/professional-cert/2JU8MAC9P92T?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof" target="_blank"> IBM Data Science Professional Certificate </a>
 
 ### Contact :
-E-mail :<br>
-18520206@gm.uit.edu.vn<br>
+E-mail: quoccuonglqd123@gm.uit.edu.vn
+
+Tel: +84 968543031
 <!-- ![wechatcode](/assets/img/wechatcode.png) -->
